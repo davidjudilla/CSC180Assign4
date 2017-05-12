@@ -20,7 +20,7 @@ using namespace std;
 #define POPULATION_SIZE 20    // population size - number of strings
 #define CHROM_LENGTH    32    // binary string length of each individual
 #define PMUT            0.03  // probability of flipping each bit
-#define MAX_GEN         1000   // GA stops after this many generations
+#define MAX_GEN         10000   // GA stops after this many generations
 #define GEN_REP         10     // report is generated at these intervals
 #define ELITE           0     // 1=elitism,  0=no elitism
 #define MAXMIN          1    // -1=minimize, 1=maximize
@@ -284,9 +284,10 @@ double evaluate(int valueX, int valueY)
   double x = convRange(valueX);
   double y = convRange(valueY);
 
-  double a = pow(x, 2.0)-(x*y)+x+pow(y, 2.0)-y;
-  double g = sin(a)/a;
+  // double a = pow(x, 2.0)-(x*y)+x+pow(y, 2.0)-y;
+  // double g = sin(a)/a;
   
+  double g = (x/2)*sin(x) + (y/2)*sin(y);
   // double g = 2*pow(x, 2) - pow(y,2) - (6*y);
   // double g = sin(x) * cos(y);
   // cout << "g: " << g << endl;
